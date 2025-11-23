@@ -27,7 +27,12 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-            "tsConfig": "projects/ngx-cachr/tsconfig.spec.json"
+            "tsConfig": "projects/ngx-cachr/tsconfig.spec.json",
+            "main": "projects/ngx-cachr/src/test.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }

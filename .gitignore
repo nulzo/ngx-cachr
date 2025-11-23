@@ -42,5 +42,6 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 node_modules
-.vs_code
-.cursor
+.vs_code/
+.cursor/
+generated-docs/

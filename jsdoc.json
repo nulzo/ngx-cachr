@@ -1,0 +1,59 @@
+{
+  "source": {
+    "include": ["./projects/ngx-cachr/src", "README.md", "package.json", "./docs"],
+    "includePattern": ".+\\.ts(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "encoding": "utf8",
+    "destination": "./generated-docs",
+    "readme": "./README.md",
+    "recurse": true,
+    "verbose": true,
+    "template": "node_modules/clean-jsdoc-theme",
+    "tutorials": "./tutorials",
+    "theme_opts": {
+      "default_theme": "dark",
+      "search_no_results_message": "No results found.",
+      "homepageTitle": "ngx-cachr",
+      "menu": [
+        {
+          "title": "Github",
+          "link": "https://github.com/nulzo/ngx-cachr",
+          "target": "_blank",
+          "class": "some-class",
+          "id": "some-id"
+        }
+      ]
+    }
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
+  },
+  "plugins": [
+    "node_modules/better-docs/typescript",
+    "better-docs/component",
+    "better-docs/category",
+    "plugins/markdown"
+  ],
+  "templates": {
+      "better-docs": {
+            "name": "Example documentation",
+            "navigation": [
+                {
+                    "label": "GitHub",
+                    "href": "https://github.com/SoftwareBrothers/example-design-system"
+                }
+            ]
+      },
+      "search": true,
+      "default": {
+        "staticFiles": {
+          "include": [
+              "./docs"
+          ]
+        }
+    }
+  }
+}
