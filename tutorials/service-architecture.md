@@ -63,7 +63,7 @@ export class ProductService {
     return cachedResource(() => ({
       key: ['product', id()],
       loader: () => this.api.get<Product>(`/products/${id()}`),
-      strategy: 'cache-first' // Don't re-fetch if we have it in memory/storage
+      strategy: 'cache-first' // don't re-fetch if we have it in memory/storage
     }));
   }
 }
