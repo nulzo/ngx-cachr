@@ -1,8 +1,8 @@
-<!-- <div style="width: 100%;" align="center">
+<div style="width: 100%;" align="center">
   <a href="https://github.com/nulzo/ngx-cachr">
-    <img src="docs/images/ngx-stashr.png" style="width: 200px;" alt="ngx-cachr logo">
+    <img src="docs/images/ngx-cachr-finished-png.png" style="width: 200px;" alt="ngx-cachr logo">
   </a>
-</div> -->
+</div>
 
 <h1 align="center">ngx-cachr</h1>
 
