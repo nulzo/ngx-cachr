@@ -10,7 +10,7 @@ export class MemoryDriver implements CacheDriver {
   private cache = new Map<string, CacheEntry<unknown>>();
   private accessLog: string[] = [];
 
-  constructor(private maxEntries: number = 100) {}
+  constructor(private maxEntries: number = 100) { }
 
   /** @inheritdoc */
   async get<T>(key: string): Promise<CacheEntry<T> | null> {
@@ -59,6 +59,18 @@ export class MemoryDriver implements CacheDriver {
     this.accessLog = this.accessLog.filter(k => k !== key);
     this.accessLog.push(key);
   }
+
+  /**
+   * Returns a snapshot of all keys in memory.
+   */
+  keys(): string[] {
+    return Array.from(this.cache.keys());
+  }
+
+  /**
+   * Returns a snapshot of all entries in memory.
+   */
+  entries(): [string, CacheEntry<unknown>][] {
+    return Array.from(this.cache.entries());
+  }
 }
-
-

@@ -263,6 +263,15 @@ export interface CachedResource<T> {
 }
 
 /**
+ * A snapshot of the cache.
+ */
+export interface CacheSnapshot {
+  keys: string[];
+  memory: Record<string, CacheEntry<any>>;
+  pending: string[];
+}
+
+/**
  * The injection token for the cache config.
  */
 export const CACHE_CONFIG = new InjectionToken<CacheConfig>('CACHE_CONFIG');

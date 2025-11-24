@@ -6,7 +6,8 @@ import {
   CacheEntry, 
   CacheKey, 
   CachedResourceOptions, 
-  CacheStrategy 
+  CacheStrategy, 
+  CacheSnapshot
 } from '../core/types';
 import { MemoryDriver } from '../drivers/memory.driver';
 import { StorageDriver } from '../drivers/storage.driver';
@@ -227,6 +228,29 @@ export class NgxCachrService {
     if (this.storageDriver) {
         this.storageDriver.set(serializedKey, entry);
     }
+  }
+
+  /**
+   * Returns a debug snapshot of the current cache state.
+   */
+  getDebugSnapshot(): CacheSnapshot {
+    const keys = this.memoryDriver.keys();
+    const memory: Record<string, CacheEntry<any>> = {};
+
+    // this isnt ideal. we should come back and clean this up
+    // TODO: clean up this implementation to be more structured.
+
+    // just cast to any to bypass private for the sake of the 'hack'.
+    const rawCache = (this.memoryDriver as any).cache as Map<string, CacheEntry<any>>;
+    rawCache.forEach((val, key) => {
+        memory[key] = val;
+    });
+
+    return {
+      keys,
+      memory,
+      pending: Array.from(this.pendingRequests.keys())
+    };
   }
 
   // TODO: Invalidate by tag
