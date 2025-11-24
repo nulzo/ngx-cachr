@@ -1,14 +1,16 @@
 <div style="width: 100%;" align="center">
   <a href="https://github.com/nulzo/ngx-cachr">
-    <img src="docs/images/ngx-cachr-finished-png.png" style="width: 200px;" alt="ngx-cachr logo">
+    <img src="docs/images/ngx-cachr-finished-png.png" style="width: 300px;" alt="ngx-cachr logo">
   </a>
 </div>
 
-<h1 align="center">ngx-cachr</h1>
+<br/>
 
 <p align="center">
   <strong>A slim, signal-based caching library for Angular.</strong>
 </p>
+
+<br/>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/ngx-cachr">
