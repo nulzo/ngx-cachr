@@ -158,3 +158,4 @@ export class UserProfileComponent {
 2.  ** consistency**: By wrapping `cachedResource` in `createQuery`, you enforce a consistent API across your entire application.
 3.  **Reusability**: You can add global error handling, logging, or other side effects inside `createQuery` once, and it applies everywhere.
 
+

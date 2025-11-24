@@ -99,3 +99,4 @@ export class PostListComponent {
 2.  **Back**: Click "Previous" to go back to Page 1. The data loads **instantly** because `['posts', 1]` is still in the cache.
 3.  **Stale-While-Revalidate**: If the cache is stale (older than TTL), the cached posts show immediately, while a background fetch updates them. You might see the "Updating..." indicator briefly.
 
+

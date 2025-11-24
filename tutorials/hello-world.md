@@ -87,3 +87,4 @@ export class HelloWorldComponent {
 2.  **Refresh Page**: If you refresh the browser within 1 minute, the data will appear **instantly** because it is served from LocalStorage/Memory.
 3.  **Invalidate**: Clicking "Refresh" invalidates the cache key `'greeting'`, causing a re-fetch from the "server".
 
+

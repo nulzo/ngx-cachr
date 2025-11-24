@@ -139,4 +139,3 @@ describe('NgxCachrService', () => {
     expect(loaderSpy).toHaveBeenCalledTimes(1);
   });
 });
-

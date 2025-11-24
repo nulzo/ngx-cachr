@@ -13,4 +13,3 @@ describe('serializeKey', () => {
     expect(serializeKey(['user', 1, 'details'])).toBe('user:1:details');
   });
 });
-
