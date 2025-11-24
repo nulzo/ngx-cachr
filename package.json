@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build ngx-cachr",
     "docs:build": "jsdoc -c jsdoc.json",
     "watch": "ng build --watch --configuration development",
+    "publish": "cd dist/ngx-cachr && npm publish --access public",
     "test": "ng test"
   },
   "prettier": {
