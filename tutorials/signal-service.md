@@ -7,10 +7,8 @@ This tutorial demonstrates how to build a robust, fully signal-based service lay
 We want to consume data in our components like this:
 
 ```typescript
-// Component
 userQuery = this.userService.getUser(userId);
 
-// Template
 @if (userQuery.isLoading()) {
   <spinner />
 }
@@ -29,7 +27,6 @@ userQuery = this.userService.getUser(userId);
 First, let's create a utility or a base service method that enhances the standard `cachedResource` return type with helper computed signals.
 
 ```typescript
-// utils/query-resource.ts
 import { computed, Signal } from '@angular/core';
 import { cachedResource, CachedResourceOptions, CachedResource } from 'ngx-cachr';
 
@@ -60,7 +57,6 @@ export function createQuery<T>(
 Now we use `createQuery` in our domain services. This keeps our service logic clean and focused on *what* to fetch, not *how* to track state.
 
 ```typescript
-// services/user.service.ts
 import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
@@ -80,7 +76,7 @@ export class UserService {
     return createQuery(() => ({
       key: ['user', id()],
       loader: () => firstValueFrom(this.http.get<User>(`/api/users/${id()}`)),
-      ttl: 5 * 60 * 1000 // 5 minutes
+      ttl: 5 * 60 * 1000
     }));
   }
 
@@ -88,7 +84,7 @@ export class UserService {
     return createQuery({
       key: 'users-list',
       loader: () => firstValueFrom(this.http.get<User[]>('/api/users')),
-      strategy: 'swr' // Stale-While-Revalidate
+      strategy: 'swr'
     });
   }
 }
@@ -99,7 +95,6 @@ export class UserService {
 The component code becomes incredibly declarative and readable.
 
 ```typescript
-// features/user-profile/user-profile.component.ts
 import { Component, inject, signal } from '@angular/core';
 import { UserService } from '../../services/user.service';
 
@@ -143,7 +138,6 @@ export class UserProfileComponent {
   
   userId = signal(1);
   
-  // This is now a fully powered QueryResource
   userQuery = this.userService.getUser(this.userId);
 
   nextUser() {
@@ -157,5 +151,3 @@ export class UserProfileComponent {
 1.  **DX (Developer Experience)**: Boolean flags like `isLoading()` are often more convenient in templates than checking string enums (`status() === 'loading'`).
 2.  ** consistency**: By wrapping `cachedResource` in `createQuery`, you enforce a consistent API across your entire application.
 3.  **Reusability**: You can add global error handling, logging, or other side effects inside `createQuery` once, and it applies everywhere.
-
-
