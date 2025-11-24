@@ -36,9 +36,9 @@ npm install ngx-cachr
 
 ## Features
 
-- **Signal-Based**: Fully integrated with Angular Signals for granular reactivity.
+- **Signal-Based**: Fully built on signals for modern and granular reactivity.
 - **Flexible Strategies**: Support for `cache-first`, `network-first`, and `stale-while-revalidate` (SWR).
-- **Multi-Layer Caching**: Memory cache with LRU eviction and persistent cache via LocalStorage.
+- **Multi-Layer Caching**: Memory cache using [LRU](https://en.wikipedia.org/wiki/Cache_replacement_policies) and persistent cache via LocalStorage.
 - **Lightweight**: Minimal footprint, tree-shakeable.
 
 ## Usage
