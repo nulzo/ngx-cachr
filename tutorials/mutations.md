@@ -93,5 +93,3 @@ export class UserProfileComponent {
 -   **`mutate(newData)`**: Directly updates the signal `data` and the underlying cache (Memory & Storage). This is perfect for instant UI feedback.
 -   **Error Handling**: If the API call fails, you can simply call `mutate` again with the old data to rollback the changes.
 -   **Persistence**: Since `mutate` updates the storage driver, if the user refreshes the page immediately after an optimistic update, they will still see the new data.
-
-

@@ -27,10 +27,15 @@ jobs:
       - name: Build Documentation
         run: npm run docs:build
 
+      - name: Copy Docs to Root
+        run: |
+          # Copy the contents of the nested docs directory to the root docs directory
+          cp -r ./docs/ngx-cachr/0.0.0/* ./docs/
+          # Remove the nested directory structure
+          rm -rf ./docs/ngx-cachr
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-
-

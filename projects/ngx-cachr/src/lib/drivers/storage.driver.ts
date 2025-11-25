@@ -51,5 +51,3 @@ export class StorageDriver implements CacheDriver {
     keysToRemove.forEach(k => this.storage.removeItem(k));
   }
 }
-
-

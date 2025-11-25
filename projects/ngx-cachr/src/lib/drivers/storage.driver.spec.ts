@@ -65,5 +65,3 @@ describe('StorageDriver', () => {
     expect(store['other-prefix:key2']).toBeDefined();
   });
 });
-
-
